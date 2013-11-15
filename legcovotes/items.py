@@ -5,7 +5,7 @@
 
 from scrapy.item import Item, Field
 
-class LegcoVote(Item):
+class VoteItem(Item):
     number = Field()
     date = Field()
     time = Field()
@@ -15,3 +15,12 @@ class LegcoVote(Item):
     mover_en = Field()
     type = Field()
     separate_mechanism = Field()
+
+
+class IndividualVoteItem(Item):
+    number = Field()
+    date = Field()
+    name_ch = Field()
+    name_en = Field()
+    constituency = Field()
+    vote = Field()

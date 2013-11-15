@@ -11,6 +11,10 @@ BOT_NAME = 'legcovotes'
 SPIDER_MODULES = ['legcovotes.spiders']
 NEWSPIDER_MODULE = 'legcovotes.spiders'
 
+ITEM_PIPELINES = {
+    'legcovotes.pipelines.MultiCSVItemPipeline': 300,
+}
+
 #FEED_URI = 'legcovote_unicode.csv'
 #FEED_FORMAT = 'csv'
 
