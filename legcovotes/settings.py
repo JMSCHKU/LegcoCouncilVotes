@@ -15,6 +15,8 @@ ITEM_PIPELINES = {
     'legcovotes.pipelines.MultiCSVItemPipeline': 300,
 }
 
+LOG_LEVEL = 'INFO'
+
 #FEED_URI = 'legcovote_unicode.csv'
 #FEED_FORMAT = 'csv'
 

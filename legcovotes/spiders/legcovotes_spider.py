@@ -56,7 +56,13 @@ class LegcoVotesSpider(CrawlSpider):
         # restrict to one XML file for developing purposes
         #links = [links[0]]
 
+        count = 0
+        start = 20
+        end = 28
         for link in links:
+            #count = count + 1
+            #if count < start:
+            #    continue
             url=urlparse.urljoin("http://www.legco.gov.hk/", link.get_attribute('href'))
             yield Request(url, callback=self.parse_xml_document)    
 
