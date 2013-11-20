@@ -15,6 +15,20 @@ class VoteItem(Item):
     mover_en = Field()
     type = Field()
     separate_mechanism = Field()
+    result = Field()
+    functional_present = Field()
+    functional_vote = Field()
+    functional_yes = Field()
+    functional_no = Field()
+    functional_abstain = Field()
+    functional_result = Field()
+    geographical_present = Field()
+    geographical_vote = Field()
+    geographical_yes = Field()
+    geographical_no = Field()
+    geographical_abstain = Field()
+    geographical_result = Field()
+
 
 
 class IndividualVoteItem(Item):
