@@ -21,7 +21,7 @@ class MultiCSVItemPipeline(object):
 
     def spider_opened(self, spider):
         self.files = dict([ (name, open(name+'.csv','w+b')) for name in self.SaveTypes ])
-        self.exporters = dict([ (name,CsvItemExporter(self.files[name])) for name in self.SaveTypes])
+        self.exporters = dict([ (name,CsvItemExporter(self.files[name],delimiter = '\t')) for name in self.SaveTypes])
         [e.start_exporting() for e in self.exporters.values()]
 
     def spider_closed(self, spider):

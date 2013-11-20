@@ -15,7 +15,11 @@ ITEM_PIPELINES = {
     'legcovotes.pipelines.MultiCSVItemPipeline': 300,
 }
 
-LOG_LEVEL = 'INFO'
+#LOG_LEVEL = 'INFO'
+
+#MEMDEBUG_ENABLED = True
+#TELNETCONSOLE_ENABLED = True
+#TELNETCONSOLE_PORT = 6888
 
 #FEED_URI = 'legcovote_unicode.csv'
 #FEED_FORMAT = 'csv'

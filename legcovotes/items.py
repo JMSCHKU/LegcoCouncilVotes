@@ -6,7 +6,7 @@
 from scrapy.item import Item, Field
 
 class VoteItem(Item):
-    number = Field()
+    vote_number = Field()
     date = Field()
     time = Field()
     motion_ch = Field()
@@ -18,9 +18,13 @@ class VoteItem(Item):
 
 
 class IndividualVoteItem(Item):
-    number = Field()
+    vote_number = Field()
     date = Field()
     name_ch = Field()
     name_en = Field()
     constituency = Field()
     vote = Field()
+
+
+class VoteXMLFileItem(Item):
+    url = Field()
