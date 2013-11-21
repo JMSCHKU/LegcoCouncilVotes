@@ -13,6 +13,7 @@ NEWSPIDER_MODULE = 'legcovotes.spiders'
 
 ITEM_PIPELINES = {
     'legcovotes.pipelines.MultiCSVItemPipeline': 300,
+    'legcovotes.pipelines.JsonVotePipeline': 400,
 }
 
 #LOG_LEVEL = 'INFO'

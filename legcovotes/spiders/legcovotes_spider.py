@@ -97,7 +97,7 @@ class LegcoVotesXMLFileSpider(CrawlSpider):
     def get_xml_files(self):
         import os.path
 
-        xmlfilestxt = 'votexmlfiles.txt'
+        xmlfilestxt = 'data/votexmlfiles.txt'
 
         if not ( os.path.isfile(xmlfilestxt) ): # & os.path.getsize(xmlfilestxt) == 0 ):
             from selenium import webdriver

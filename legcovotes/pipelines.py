@@ -8,9 +8,31 @@ from scrapy import signals
 from scrapy.xlib.pydispatch import dispatcher
 from scrapy.contrib.exporter import CsvItemExporter
 
+import json
+
 
 def item_type(item):
     return type(item).__name__.replace('Item','').lower()  # TeamItem => team
+
+
+class JsonVotePipeline(object):
+    def __init__(self):
+        self.votefile = open('data/json/votes.json', 'wb')
+        self.individualvotefile = open('data/json/individualvotes.json', 'wb')
+
+    def process_item(self, item, spider):
+        if (type(item).__name__ == 'VoteItem'):
+            line = json.dumps(dict(item)) + "\n"
+            self.votefile.write(line)
+            return item
+
+        if (type(item).__name__ == 'IndividualVoteItem'):
+            line = json.dumps(dict(item)) + "\n"
+            self.individualvotefile.write(line)
+            return item
+
+        return item
+
 
 class MultiCSVItemPipeline(object):
     SaveTypes = ['vote','individualvote']
@@ -20,7 +42,7 @@ class MultiCSVItemPipeline(object):
         dispatcher.connect(self.spider_closed, signal=signals.spider_closed)
 
     def spider_opened(self, spider):
-        self.files = dict([ (name, open(name+'.csv','w+b')) for name in self.SaveTypes ])
+        self.files = dict([ (name, open('data/csv/'+name+'.csv','w+b')) for name in self.SaveTypes ])
         self.exporters = dict([ (name,CsvItemExporter(self.files[name],delimiter = '\t')) for name in self.SaveTypes])
         [e.start_exporting() for e in self.exporters.values()]
 
